@@ -22930,27 +22930,39 @@ const {Axios: c3, AxiosError: f3, CanceledError: d3, isCancel: h3, CancelToken: 
     className: `w-14 h-14 ${i} rounded-full flex items-center justify-center text-white shadow-xl border-b-4 border-black/20`,
     children: n
 })
-  , DD = "/assets/logo1-BQl2EQ5G.png"
-  , OD = "/assets/logo2-DejRw_sH.png"
-  , ND = "/assets/logo3-DYXfwmVk.png"
-  , _D = "/assets/logo4-Ckf5-nxi.png"
-  , jD = "/assets/logo5-x9eoSNox.png"
-  , zD = "/assets/logo6-p-YRFYUD.png"
-  , LD = "/assets/logo7-DYIu7ML8.png"
-  , O0 = "/assets/logo8-D-YxHPMV.png"
-  , VD = "/assets/logo9-CltNiMBM.png"
-  , UD = "/assets/logo12-C0dGOmC0.webp"
-  , BD = "/assets/jai-jW-d6eEp.jpg"
-  , HD = "/assets/logo13-B8qLmnHE.webp"
-  , kD = "/assets/logo14-Dw3MxVVj.png"
-  , qD = "/assets/logo15-BOMJYOf7.png"
-  , GD = "/assets/logo16-BqxNOuBe.png"
-  , YD = "/assets/logo17-D1C3zUR9.png"
-  , XD = "/assets/logo18-DxfPVnId.png"
-  , PD = "/assets/logo19-BWZ7KWEs.png"
-  , KD = "/assets/logo20-BR7dt3Ym.png"
-  , QD = "/assets/logo21-CSSq9Ldh.png"
-  , ZD = "/assets/logo22-D7ro20k2.png"
+  , ashuraBase = (() => {
+    const i = document.querySelector('meta[name="repo-base"]')?.content?.trim();
+    if (i)
+        return i.endsWith("/") ? i : i + "/";
+    if (location.hostname.endsWith(".github.io")) {
+        const s = location.pathname.split("/").filter(Boolean)[0];
+        if (s && !["portal", "game", "auth"].includes(s) && !s.startsWith("admin"))
+            return "/" + s + "/"
+    }
+    return "/"
+})()
+  , ashuraBasename = ashuraBase === "/" ? "" : ashuraBase.replace(/\/$/, "")
+  , DD = ashuraBase + "assets/logo1-BQl2EQ5G.png"
+  , OD = ashuraBase + "assets/logo2-DejRw_sH.png"
+  , ND = ashuraBase + "assets/logo3-DYXfwmVk.png"
+  , _D = ashuraBase + "assets/logo4-Ckf5-nxi.png"
+  , jD = ashuraBase + "assets/logo5-x9eoSNox.png"
+  , zD = ashuraBase + "assets/logo6-p-YRFYUD.png"
+  , LD = ashuraBase + "assets/logo7-DYIu7ML8.png"
+  , O0 = ashuraBase + "assets/logo8-D-YxHPMV.png"
+  , VD = ashuraBase + "assets/logo9-CltNiMBM.png"
+  , UD = ashuraBase + "assets/logo12-C0dGOmC0.webp"
+  , BD = ashuraBase + "assets/jai-jW-d6eEp.jpg"
+  , HD = ashuraBase + "assets/logo13-B8qLmnHE.webp"
+  , kD = ashuraBase + "assets/logo14-Dw3MxVVj.png"
+  , qD = ashuraBase + "assets/logo15-BOMJYOf7.png"
+  , GD = ashuraBase + "assets/logo16-BqxNOuBe.png"
+  , YD = ashuraBase + "assets/logo17-D1C3zUR9.png"
+  , XD = ashuraBase + "assets/logo18-DxfPVnId.png"
+  , PD = ashuraBase + "assets/logo19-BWZ7KWEs.png"
+  , KD = ashuraBase + "assets/logo20-BR7dt3Ym.png"
+  , QD = ashuraBase + "assets/logo21-CSSq9Ldh.png"
+  , ZD = ashuraBase + "assets/logo22-D7ro20k2.png"
   , FD = () => {
     const n = window.location.hostname;
     return n.includes("modmenuhack.sbs") ? {
@@ -23867,6 +23879,7 @@ const {Axios: c3, AxiosError: f3, CanceledError: d3, isCancel: h3, CancelToken: 
 function l3() {
     return M.jsxs(M.Fragment, {
         children: [M.jsx(AshuraPopup, {}), M.jsx(u2, {
+            basename: ashuraBasename || void 0,
             children: M.jsx("div", {
                 className: "min-h-screen bg-[#F8FAFC]",
                 children: M.jsxs(HT, {
